@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: springcloud-consumer
+        
+server:
+  port: 9310
+
+eureka:
+  instance:
+    instance-id: springcloud-consumer1
+    appname: ${spring.application.name}
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 5
+  client:
+    service-url:
+      #同时向集群中的所有eureka服务注册
+      defaultZone: http://test1:9110/eureka/,http://test2:9120/eureka/
+

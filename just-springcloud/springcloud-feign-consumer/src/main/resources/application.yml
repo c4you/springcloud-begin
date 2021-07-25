@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: springcloud-consumer
+server:
+  port: 9320
+eureka:
+  instance:
+    instance-id: springcloud-feign-consumer
+    appname: ${spring.application.name}
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 5
+  client:
+    service-url:
+      defaultZone: http://test1:9110/eureka/,http://test2:9120/eureka/
+      
+feign:
+  circuitbreaker:
+    enabled: true

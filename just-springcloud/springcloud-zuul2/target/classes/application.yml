@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: springcloud-zuul
+        
+server:
+  port: 9420
+
+eureka:
+  instance:
+    instance-id: springcloud-zuul2
+    appname: ${spring.application.name}
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 5
+  client:
+    service-url:
+      defaultZone: http://test1:9110/eureka/,http://test2:9120/eureka/
+
+  
+zuul:
+  routes:
+    proxy-1:
+      path: /proxy-1/**
+      serviceId: springcloud-common      
+
+    
+    

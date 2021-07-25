@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: springcloud-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/c4you/springcloud-config.git
+          #公共仓库，所以不需要用户名密码
+          #username: 
+          #password: 
+          search-paths:
+          - config-client
+
+server:
+  port: 9510
+  
+eureka:
+  instance:
+    instance-id: springcloud-config-server1
+    appname: ${spring.application.name}
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 5
+  client:
+    service-url:
+      defaultZone: http://test1:9110/eureka/,http://test2:9120/eureka/

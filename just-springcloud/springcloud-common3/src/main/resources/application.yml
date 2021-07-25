@@ -1,0 +1,25 @@
+spring:
+  profiles:
+    active:
+    - three
+  application:
+    name: springcloud-common
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@192.168.57.19:1521:TEST
+    data-username: root
+    data-password: 123456
+  
+        
+eureka:
+  instance:
+    instance-id: springcloud-common3
+    appname: ${spring.application.name}
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 5
+  client:
+    service-url:
+      defaultZone: http://test1:9110/eureka/,http://test2:9120/eureka/
+     
+  

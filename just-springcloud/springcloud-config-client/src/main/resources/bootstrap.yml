@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: springcloud-config-client
+  cloud:
+    config:
+      name: springcloud-config #此处为github上仓库名
+      uri:
+      - http://localhost:9510 #为前面启动的config-server配置中心地址
+      profile: dev #需要获取的配置文件profile
+
+server:
+  port: 9520
+  
+eureka:
+  instance:
+    instance-id: springcloud-config-client1
+    #下面注释掉的部分放到了github上。服务启动时从github上获取配置，将本服务注册到eureka中
+    #appname: ${spring.application.name}
+    #prefer-ip-address: true
+    #lease-renewal-interval-in-seconds: 5
+    #lease-expiration-duration-in-seconds: 5
+  #client:
+    #service-url:
+      #defaultZone: http://test1:9110/eureka/,http://test2:9120/eureka/

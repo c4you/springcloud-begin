@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: springcloud-eureka2
+    
+eureka:
+  instance:
+    #修改部分。eureka服务端实例名称。和hosts中映射名相同
+    hostname: test2
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      #修改部分。向另一台eureka服务注册
+      defaultZone: http://test1:9110/eureka/
+  server:
+    eviction-interval-timer-in-ms: 5000
+    
+server:
+  port: 9120
