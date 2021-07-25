@@ -1,0 +1,6 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://test1:9110/eureka/,http://test2:9120/eureka/
+
+file_upload_path: H:/
