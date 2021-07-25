@@ -10,7 +10,7 @@ spring:
           #username: 
           #password: 
           search-paths:
-          - config-client
+          - springcloud-config
 
 server:
   port: 9510
